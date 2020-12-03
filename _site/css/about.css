@@ -1,0 +1,131 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow: scroll;
+    overscroll-behavior: none;
+    font-family: helvetica, arial, sans;
+}
+
+.Navbar{
+    position: fixed;
+    z-index: 30;
+    background-color: #000;
+    height: 6vh;
+    width: 100vw;
+    top:0;
+    text-align: right;
+}
+.Logo-Wrapper{
+    float: left;
+    height: 3vh;
+    width:2.5vw;
+    border-radius: 15px;
+    margin: 0.7vh 1.5vh;
+} 
+
+.Navbar .nav-links a {
+    text-decoration: unset;
+    top: 2vh;
+    bottom: 2vh;
+    right: 4vh;
+    margin: 4vh;
+    position: relative;
+    color: whitesmoke;
+    }
+
+.Navbar .nav-links a:hover{
+    color: #0073bc;
+    text-decoration: underline;
+}
+
+.Banner img{
+    height: 25vh;
+    width: 14vw;
+    position: absolute;
+}
+
+.Name-Banner{
+    margin-top: 7vh;
+    width: 70wv;
+    height: 25vh;
+    border-radius: 299px;
+    background-color: darkgray;
+}
+
+.Name-Banner h1{
+    position: absolute;
+    margin: auto;
+    font-size: 14vh;
+    top: 6vh;
+    left: -20vw;
+    right: 0;
+    text-align: center;
+    font-family: rig-shaded-bold-extrude, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.Name-Banner h3{
+    position: absolute;
+    margin: auto;
+    font-size: 2.2vh;
+    top: 24.5vh;
+    width: 35vw;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: rig-shaded-light-face, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+p{
+    width: 40vw;
+    margin: auto;
+    font-size: 2vh;
+    margin-top: 8vh;
+    margin-bottom: 12vh;
+    line-height: 2;
+    font-weight: 150;
+}
+
+.Footer{
+background-color: lightgrey;
+height: 35vh;
+width: 100vw;
+text-align: center;
+}
+
+.Footer img{
+height: 18vh;
+width: 15vw;
+padding-top: 2.5vh;
+position: relative;
+}
+
+.social-links{
+
+padding-top: 4vh;
+position: relative;
+bottom: 0;
+z-index: 0;
+text-align: center;
+}
+
+.social-links a{
+display: inline-block;
+box-sizing: border-box;
+padding-top: 1.3vmin;
+margin: 0 25px;
+background-color: white;
+color: #0073bc;
+font-size: 3.3vmin;
+height: 6.2vmin;
+width: 6.2vmin;
+border-radius: 99px;
+}
+
+.social-links a:hover{
+color: white;
+background-color: #0073bc;
+}

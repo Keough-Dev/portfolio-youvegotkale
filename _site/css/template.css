@@ -1,0 +1,217 @@
+html body{
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    overscroll-behavior-y: none;
+}
+
+body {
+    font-family: helvetica, arial, sans;
+    min-height: 100vh;
+}
+.Navbar{
+        position: fixed;
+        z-index: 30;
+        background-color: #000;
+        height: 6vh;
+        width: 100vw;
+        top:0;
+        text-align: right;
+    }
+.Logo-Wrapper{
+    float: left;
+    height: 3vh;
+    width:2.5vw;
+    border-radius: 15px;
+    margin: 0.7vh 1.5vh;
+} 
+
+.Navbar .nav-links a {
+    text-decoration: unset;
+    top: 2vh;
+    bottom: 2vh;
+    right: 4vh;
+    margin: 4vh;
+    position: relative;
+    color: whitesmoke;
+    }
+
+.Navbar .nav-links a:hover{
+    color: #0073bc;
+    text-decoration: underline;
+}
+
+
+.Header{
+    background-color: #f9fafa;
+    width: 100vw;
+    text-align: center;
+    padding: 6vh 0 4vh;
+}
+
+.Author{
+    width: 12vw;
+    margin: auto;
+}
+
+.Header h1{
+    
+    font-size: 6.5vh;
+    font-family: span, serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.Header h3{
+
+    font-size: 2.5vh;
+    font-family: span, serif;
+    font-weight: 200;
+    font-style: italic;     
+    padding-top: 1vh;
+
+}
+
+.Header img{
+    height: 7.5vh;
+    width: 4vw;
+    float: left;
+}
+
+.Wrapper{
+
+}
+    
+.Row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.Column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.Content-Heading{
+    padding-top: 3vh;
+    font-size: 4vh;
+    font-weight: 400;
+}
+
+.Content{
+    padding-left: 10vw;
+    font-size: 2vh;
+}
+
+.Content img{
+    display: block;
+    margin: auto;
+    height: 30vh;
+    width: 30vw;
+}
+
+.Jump-To{
+    padding-left: 10vw;
+    font-family: span, serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.Jump-To h2{
+    padding-left: 8vh;
+}
+
+.Jump-To p{
+    padding: 12vh 0 0 5vh;
+}
+
+.Project{
+    height: 10vh;
+    width: 10vw;
+    margin-bottom: 6vh;
+}
+
+.Project img{
+    height: 20vh;
+    width: 13vw;
+}
+
+
+.Project:hover img{
+    opacity: 0.5;
+    filter: contrast(20%);
+}
+
+.Project .Text{
+    pointer-events: none;  
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: -18vh;
+    left: 3vh;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+    opacity: 0;
+    transition: all 0.2s ease;   
+    font-size: 2vh;
+}
+
+.Project:hover > .Text{
+    opacity: 1;
+    color: white;
+}
+
+
+p{
+    width: 60vw;
+    line-height: 1.75;
+    display: inline-block;
+    font-weight: 200;
+}
+
+
+.Footer{
+    background-color: darkgrey;
+    height: 35vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.Footer img{
+    height: 18vh;
+    width: 15vw;
+    padding-top: 2.5vh;
+    position: relative;
+}
+
+.social-links{
+    
+    padding-top: 4vh;
+    position: relative;
+    bottom: 0;
+    z-index: 0;
+    text-align: center;
+}
+
+.social-links a{
+    display: inline-block;
+    box-sizing: border-box;
+    padding-top: 1.3vmin;
+    margin: 0 25px;
+    background-color: white;
+    color: #0073bc;
+    font-size: 3.3vmin;
+    height: 6.2vmin;
+    width: 6.2vmin;
+    border-radius: 99px;
+}
+
+.social-links a:hover{
+    color: white;
+    background-color: #0073bc;
+}

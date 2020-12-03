@@ -1,0 +1,264 @@
+html body{
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    overscroll-behavior: none;
+}
+
+body {
+    font-family: helvetica, arial, sans;
+    min-height: 100vh;
+}
+.Navbar{
+        position: fixed;
+        z-index: 30;
+        background-color: #000;
+        height: 6vh;
+        width: 100vw;
+        top:0;
+        text-align: right;
+    }
+.Logo-Wrapper{
+    float: left;
+    height: 3vh;
+    width:2.5vw;
+    border-radius: 15px;
+    margin: 0.7vh 1.5vh;
+} 
+
+.Navbar .nav-links a {
+    text-decoration: unset;
+    top: 2vh;
+    bottom: 2vh;
+    right: 4vh;
+    margin: 4vh;
+    position: relative;
+    color: whitesmoke;
+    }
+
+.Navbar .nav-links a:hover{
+    color: #0073bc;
+    text-decoration: underline;
+}
+
+.Hero{
+    margin-bottom: -1vh;
+}
+
+.Hero img{
+    height: 75vh;
+    width: 100vw;
+    margin-top: 6vh;
+    text-align: center;
+    opacity: 0.8;
+    position: relative;
+}
+
+.Hero h1{
+    position: absolute;
+    top: 6vh;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: white;
+    font-family: pirulen, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 14vmin;
+}
+
+.Hero ul{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 21.5vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.Hero li{
+    display: inline-block;
+    color: white;
+    padding: 0 2vh;
+    border-right: white solid 0.2vh;
+    font-family: pirulen, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 3vmin;
+} 
+
+.Hero li:nth-child(3){
+    border: 0;
+}
+
+
+.Break{
+    height: 16.8vh;
+    width: 100vw;
+    background-color: lightgray;
+    text-align: center;
+    padding-top: 3vh;
+    font-family: span, serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 4vh;
+}
+
+.Break h3{
+    position: relative;
+    top: -4vh;
+}
+
+.Background{
+    z-index: 1;
+    position: block;
+    width: 100vw;
+    background-color: white;
+    overflow: scroll;
+    margin: 0 auto;
+}
+
+#Arrow-id {
+    bottom: 2.5vmin;
+    border: 10px solid;
+    border-color: black transparent transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 0);
+}
+
+.Content-Wrapper{
+    font-size: 24px;
+    line-height: 1.5;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: scroll;
+}
+
+.Content-Background{
+    background-color: #f9fafa;
+    width: 100vw;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Content{
+    position: relative;
+    margin: 8vh 8vh;
+    width: 30vw;
+    height: 40vh;
+    float: left;
+    background-color: black;
+}
+
+.Content .Text{
+    pointer-events: none;
+}
+
+.Content .Text h3{
+    pointer-events: none;  
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+    opacity: 0;
+    transition: all 0.2s ease;   
+    font-size: 4vh;
+}
+
+.Content .Text p{
+    pointer-events: none;  
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 5vh;
+    padding-top: 6vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 15vw;
+    z-index: 10;
+    line-height: 1.5;
+    font-size: 2vh;
+    font-weight: 600;
+    font-style: oblique;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.2s ease; 
+}
+
+.Content:hover > .Text h3{
+    opacity: 1;
+    color: white;
+}
+
+.Content:hover > .Text p{
+    opacity: 1;
+    color: white;
+}
+
+
+.Content img{
+    position: relative;
+    width: 30vw;
+    height: 40vh;
+}
+
+.Content:hover img{
+    opacity: 0.5;
+    filter: contrast(20%);
+}
+
+.Footer{
+    background-color: lightgrey;
+    height: 35vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.Footer img{
+    height: 18vh;
+    width: 15vw;
+    padding-top: 2.5vh;
+    position: relative;
+}
+
+.social-links{
+    
+    padding-top: 4vh;
+    position: relative;
+    bottom: 0;
+    z-index: 0;
+    text-align: center;
+}
+
+.social-links a{
+    display: inline-block;
+    box-sizing: border-box;
+    padding-top: 1.3vmin;
+    margin: 0 25px;
+    background-color: white;
+    color: #0073bc;
+    font-size: 3.3vmin;
+    height: 6.2vmin;
+    width: 6.2vmin;
+    border-radius: 99px;
+}
+
+.social-links a:hover{
+    color: white;
+    background-color: #0073bc;
+}

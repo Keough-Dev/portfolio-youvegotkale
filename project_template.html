@@ -1,0 +1,133 @@
+---
+layout: default
+title: Project Template 
+custom_css: template
+---
+
+
+
+{% include navbar.html %}
+
+        
+        <div class="Header">    
+            <h1>Indego Bikes Data Analysis</h1>
+            <div class = "Author">
+            <h3>
+                <img src="/images/Site-Self-Pic.png" alt="">
+                Kyle Keough
+                <br> Nov 12, 2020
+            </h3>
+            </div>
+        </div>
+
+        <div class = "Wrapper">
+        
+        <div class = "Row">
+        <div class = "Column">
+        <div class="Content">
+            <div class = "Content-Heading">
+                Background
+            </div>
+            <p>At the time of this writing I'm currently packing up my life in New Jersey to trek across the Delaware River and explore Philadelphia's data science and software development opportunities. I couldn't in my right mind make this move without knowing more about the relationship between the city's weather and its bike rental services. Philadelphia based bike ride sharing company, Indego, has all of its ride data publicly available for download. The data is very comprehensive spanning back to 2015, along with being mostly clean right out of the box. So in the wake of my transition from Pauly D's backyard to the city of Brotherly Love, I decided to dive into this data and see what it yielded. Admitedly, the results weren't exactly Earth shattering, but they do paint an informative picture of the company's dealings. On that note, let's get to the numbers.
+
+                As alluded to earlier, the ultimate goal here was to examine the relationship between weather and the number of daily rides. Before we can jump into this question, however, we need to start with some exploratory data analysis. 
+                
+            <img src="/images/Screen Shot 2020-12-03 at 1.57.49 PM.png" alt="Yearly Counts">
+                
+                What jumped out at me first was how much of an outlier 2016 was in terms of total rentals. There were no major differences in average weather for the year that could be pointed to as the cause. Whether this discrepancy was due to Indego being "the new cool thing" or it was due to something operational that could be duplicated, it's certainly worth further investigation by the company's decision makers.
+                
+            </p>
+
+            <img src="/images/Screen Shot 2020-12-01 at 10.09.01 AM.png" alt="Seasonal Patterns">
+             
+            <p>
+                For the remainder of the analysis and the later regression models I will be omitting 2015 and 2016 in order to accurately portray recent trends and exclude clear outliers. This could be handled in other ways such as weighted regression with a heavier emphasis on recent years, but due to the sheer size of the difference and for the sake of simplicity, the omission aproach will be taken.
+                
+                Even before taking weather data into account a clear seasonal correlation can be seen. This pattern alone could help predict daily rentals within a regional margin. Adjusting the number of bikes in circulation or the number of operational stations could be a good way to cut costs and take advantage of the lower volume in down seasons.
+                
+            <img src="/images/Screen Shot 2020-12-03 at 2.00.37 PM.png" alt="Holidays">
+                
+                If you simply look at the total distribution of rides by day you'll see that there is very little deviation amongst them and slightly more rides on saturdays, but this doesn't tell the whole story.
+                
+                Breaking down the daily ride distribution by pass type reveals a more interesting relationship. Daily passes have a much higher rental volume on weekends while subscription passes have a much greater amount of rides on weekdays. This makes logical sense considering people may use subscription services as their main form of transportation while daily passes may be used more for leisure on days off. This could potentially be capitalized on with promotions for daily passes on week days to hopefully draw in more customers on slower days or by utilizing other discount offers. 
+                
+                There is also a much larger rate of rentals on holidays. Less than 1/7th of the days of the year are recognized holidays, while roughly 40% of bike rentals occur on holidays. Using a similar strategy as previously mentioned, discounts could be offered on non holidays to boost rental rates, and prices could be kept constant on holidays when rental rates are already high.
+                
+                *4 quadrant graph of different weather metrics*
+                
+                After finishing up some initial EDA, we'll factor in weather and finish up some more initial analyses before moving to regression.
+                
+                The one factor that appears to have a positive correlation with rentals is daily mean temperature. Chance of precipitation, when not zero, appears to have a downward correlation. Neither of these are extremely compact trends, but they do exhibit a connection in either direction. All other weather phenomena checked showed virtually zero correlation with rental numbers. 
+                
+                After experimenting with different available data it turned out that the most accurate regression model was a simple one containing only mean temperature, precipitation chance, and a binary variable for holiday or not. Using this equation an r^2 value of roughly 0.7 was achieved with a root mean square error of only 569 for the years between 2017 and early 2020. While a lot of this is seasonally driven and could be seen from the earlier EDA, being able to predict daily ride counts within a reasonable margin like this can be highly useful for forecasting and resource allocation. </p>
+        </div>
+        </div>
+        <div class = "Column">
+        <div class = "Jump-To">
+            <h2>Jump To</h2>
+            <div class="Project">
+                <img style = "border: 1px solid black" src="/images/Baseball_Viz.png" alt="Plotly Baseball Viz">
+                <div class = "Text">
+                <h3>MLB Plotly Site</h3>
+                </div>
+            </div>
+            <div class="Project">
+            <p>
+            </p>
+
+            </div>
+
+            <div class="Project">
+                <img src="/images/bballHOF.png" alt="NBA HOF Log Reg">
+                <div class = "Text">
+                <h3>NBA HOF Classifier</h3>
+                </div>
+            </div>
+            <div class="Project">
+            <p>
+            </p>
+
+            </div>
+
+            <div class="Project">
+                <img src="/images/indego_bikes_PBI.png" alt="Indego Bikes PBI">
+                <div class = "Text">
+                <h3>Indego Bikes PBI</h3>
+                </div>
+            </div>
+            <div class="Project">
+            <p>
+            </p>
+
+            </div>
+            
+            <div class="Project">
+                <img src="/images/Artboard 1.png" alt="Pandas Compressor">
+                <div class = "Text">
+                <h3>Pandas Data Compressor</h3>
+                </div>
+            </div>
+            <div class="Project">
+            <p>
+            </p>
+
+            </div>
+            
+            <div class="Project">
+                <img src="/images/Healthcare.png" alt="Health Care Coverage">
+                <div class = "Text">
+                <h3>Senior Thesis</h3>
+                </div>
+            </div>
+            <div class="Project">
+            <p>
+            </p>
+
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    
+
+{% include socials.html %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ page.title }}</title>
+
+        <script src="https://kit.fontawesome.com/fe1006e86a.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://use.typekit.net/dqi6tew.css">
+        {% if page.custom_css %}
+            {% for stylesheet in page.custom_css %}
+              <link rel="stylesheet" href="/css/{{ stylesheet }}.css">
+            {% endfor %}
+        {% endif %}
+    </head>
+    <body>
+        
+        {{ content }}
+        
+    </body>
+</html>
