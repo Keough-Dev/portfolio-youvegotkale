@@ -40,6 +40,9 @@ body{
 }
 
 button{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     position: absolute;
     margin: 10vh auto;
     width: 8vw;
