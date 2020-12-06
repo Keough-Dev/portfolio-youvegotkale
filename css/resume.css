@@ -43,6 +43,8 @@ button{
     position: absolute;
     margin: 10vh auto;
     width: 4vw;
+    padding: 0;
+    font-size: small;
     border: 4px black solid;
     left: 0;
     right: 0;
