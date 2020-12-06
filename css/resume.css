@@ -39,7 +39,7 @@ body{
     text-decoration: underline;
 }
 
-button{
+ .Download{
     position: absolute;
     margin: 10vh auto;
     left: 0;
