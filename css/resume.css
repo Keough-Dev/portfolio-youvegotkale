@@ -39,7 +39,7 @@ body{
     text-decoration: underline;
 }
 
- .Download{
+ .Download h3{
     position: absolute;
     margin: 10vh 0;
     text-align: center;
@@ -47,7 +47,7 @@ body{
     font-size: 2vh;
 }
 
-.Download:hover{
+.Download h3:hover{
     color: #0073bc;
     text-decoration: underline;
 }
