@@ -42,6 +42,7 @@ body{
 button{
     position: absolute;
     margin: 10vh auto;
+    width: 4vw;
     border: 4px black solid;
     left: 0;
     right: 0;
