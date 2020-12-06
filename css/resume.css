@@ -41,10 +41,15 @@ body{
 
  .Download{
     position: absolute;
-    margin: 10vh auto;
-    left: 0;
-    right: 0;
-    font-size: 4vh;
+    margin: 10vh 0;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2vh;
+}
+
+.Download:hover{
+    color: #0073bc;
+    text-decoration: underline;
 }
 
 .Resume img{
