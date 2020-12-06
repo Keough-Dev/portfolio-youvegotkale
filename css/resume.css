@@ -40,10 +40,11 @@ body{
 }
 
  .Download h3{
-    margin: 10vh 0;
+    margin: 10vh 0 4vh 0;
     text-align: center;
     text-decoration: none;
     font-size: 2vh;
+    color: #000;
 }
 
 .Download h3:hover{
