@@ -45,15 +45,12 @@ body{
     font-size: 2vh;
 }
 
-.Text{
+.Download a{
+    text-decoration: unset;
     color: #000;
 }
 
-.Download a{
-    text-decoration: unset;
-}
-
-.Text:hover{
+.Text:hover > a{
     color: #0073bc;
     text-decoration: underline;
 }
