@@ -55,9 +55,9 @@ body{
 .Name-Banner h1{
     position: absolute;
     margin: auto;
-    font-size: 12vmin;
+    font-size: 13vmin;
     top: 6vh;
-    left: -15vw;
+    left: -18vw;
     right: 0;
     text-align: center;
     font-family: rig-shaded-bold-extrude, sans-serif;
