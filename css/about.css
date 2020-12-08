@@ -46,7 +46,7 @@ body{
 
 .Name-Banner{
     margin-top: 7vh;
-    width: 70wv;
+    width: 70vw;
     height: 25vh;
     border-radius: 299px;
     background-color: darkgray;
@@ -57,7 +57,7 @@ body{
     margin: auto;
     font-size: 14vh;
     top: 6vh;
-    left: -20vw;
+    left: -25vw;
     right: 0;
     text-align: center;
     font-family: rig-shaded-bold-extrude, sans-serif;
@@ -68,7 +68,7 @@ body{
 .Name-Banner h3{
     position: absolute;
     margin: auto;
-    font-size: 2.2vh;
+    font-size: 1.8vh;
     top: 24.5vh;
     width: 35vw;
     left: 0;

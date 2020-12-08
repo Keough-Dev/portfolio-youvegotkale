@@ -50,7 +50,7 @@ body{
     text-decoration: unset;
 }
 
-.Download h3:hover{
+.Download h3 a:hover{
     color: #0073bc;
     text-decoration: underline;
 }
@@ -59,7 +59,7 @@ body{
     position: absolute;
     height: 140vh;
     width: 60vw;
-    margin: 9vh auto;
+    margin: 8vh auto;
     left: 0;
     right: 0;
 }
