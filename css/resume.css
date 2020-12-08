@@ -50,7 +50,7 @@ body{
     text-decoration: unset;
 }
 
-.Download h3:hover{
+.Text:hover{
     color: #0073bc;
     text-decoration: underline;
 }
