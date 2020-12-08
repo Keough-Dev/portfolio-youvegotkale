@@ -1,5 +1,5 @@
 body{
-    background: repeating-linear-gradient(45deg, rgba(92, 201, 245, 0.3), rgba(212,214,217, 0.3) 25px);
+    background: repeating-linear-gradient(45deg, rgba(92, 201, 245, 0.3), rgba(212,214,217, 0.3) 75px);
     font-family: helvetica, arial, sans;
     overflow: scroll;
     overscroll-behavior: none;
@@ -40,9 +40,9 @@ body{
 }
 
  .Download h3{
-    margin: 10vh 0 4vh;
+    margin: 10vh 0 0;
     text-align: center;
-    text-decoration: none;
+    text-decoration: unset;
     font-size: 2vh;
     color: #000;
 }
