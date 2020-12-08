@@ -42,6 +42,7 @@ body{
  .Download h3{
     margin: 10vh 0 0;
     text-align: center;
+    width: auto;
     font-size: 2vh;
     color: #000;
 }
@@ -50,7 +51,7 @@ body{
     text-decoration: unset;
 }
 
-.Download h3 a:hover{
+.Download h3:hover{
     color: #0073bc;
     text-decoration: underline;
 }
