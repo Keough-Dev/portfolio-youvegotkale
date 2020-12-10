@@ -136,6 +136,7 @@ https://github.com/Keough-Dev/NBA_HOF_Classifier/blob/master/HOFClassifierModelT
             stats_complete_hof[['Player', 'keras_hof_prob']].sort_values
             ("keras_hof_prob", ascending = False).head(25).to_html()
         </code>
+        <br>
 </caption>
 <tr>      
     <th>Player Name</th>      
@@ -256,6 +257,7 @@ https://github.com/Keough-Dev/NBA_HOF_Classifier/blob/master/HOFClassifierModelT
                 stats_complete_hof[stats_complete_hof['HOF'] == 0][['Player', 'keras_hof_prob']]
                 .sort_values('keras_hof_prob', ascending = False).head().to_html()
             </code>
+            <br>
     </caption>
     <tr>      
         <th>Player Name</th>      
@@ -294,6 +296,7 @@ https://github.com/Keough-Dev/NBA_HOF_Classifier/blob/master/HOFClassifierModelT
                     stats_complete_hof[stats_complete_hof['HOF'] == 1][['Player', 'keras_hof_prob']]
                     .sort_values('keras_hof_prob', ascending = True).head().to_html()
                 </code>
+                <br>
         </caption>
         <tr>      
             <th>Player Name</th>      
