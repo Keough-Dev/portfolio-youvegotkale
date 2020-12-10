@@ -204,6 +204,12 @@ p{
     background-color: #ddd;
 }
 
+.Compressor-img{
+    height: 480px;
+    width: 720px;
+    padding: 2vh 0;
+}
+
 
 .Footer{
     background-color: darkgrey;
