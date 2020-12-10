@@ -175,10 +175,16 @@ p{
 }
 
 .dataframe{
+    
     border-collapse: collapse;
     width: 100%;
     margin-bottom: 2vw;
     font-size: small;
+    
+}
+
+.dataframe caption{
+    caption-side: bottom;
 }
 
 .dataframe th{
