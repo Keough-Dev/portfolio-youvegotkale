@@ -10,36 +10,289 @@ custom_css: template
         Background
     </div>
     <p>
-        <!-- At the time of this writing I'm currently packing up my life in New Jersey to trek across the Delaware River and explore Philadelphia's data science and software development opportunities. I couldn't in my right mind make this move without knowing more about the relationship between the city's weather and its bike rental services. Philadelphia based bike ride sharing company, Indego, has all of its ride data publicly available for download. The data is very comprehensive spanning back to 2015, along with being mostly clean right out of the box. So in the wake of my transition from Pauly D's backyard to the city of Brotherly Love, I decided to dive into this data and see what it yielded. Admitedly, the results weren't exactly Earth shattering, but they do paint an informative picture of the company's dealings. On that note, let's get to the numbers.
+        Any Philadelphia resident has undoubtedly passed the racks of
+        blue bikes on the sides of various streets. These bike racks are 
+        operated by Philadelphia 
+        based ride sharing company, Indego, which actually has all of its ride 
+        data publicly available for download. Due to this ride info being 
+        readily available and how ubiquitous Indego is in Philadelphia, I 
+        decided to analyze trends in their rides, how they are impacted by 
+        weather and more. The data is very comprehensive 
+        spanning back to 2015, along with being mostly clean right out of the 
+        box. The numbers end up painting an informative picture of 
+        the company's dealings, so on that note, let's get to the numbers.
+    </p>
 
-        As alluded to earlier, the ultimate goal here was to examine the relationship between weather and the number of daily rides. Before we can jump into this question, however, we need to start with some exploratory data analysis.  -->
+        <div class = "Content-Heading">
+            EDA and Trends
+        </div>
+
+        As alluded to earlier, the ultimate goal here was to examine the 
+        relationship between weather and the number of daily rides. 
+        Before we can jump into this question, however, we need to start 
+        with some exploratory data analysis. 
+
+        <p>
+
+            Below is the total number of rides by year, and what jumped out at me 
+            first was how much of an outlier 2016 was in 
+            terms of total rentals. There were no major differences in average 
+            weather for the year that could be pointed to as the cause. Whether 
+            this discrepancy was due to Indego being "the new cool thing" or it 
+            was due to something operational that could be duplicated, it's 
+            certainly worth further investigation by the company's decision makers.
+            
+        </p>
         
     <img src="images/Screen Shot 2020-12-03 at 1.57.49 PM.png" alt="Yearly Counts">
-        
-        What jumped out at me first was how much of an outlier 2016 was in terms of total rentals. There were no major differences in average weather for the year that could be pointed to as the cause. Whether this discrepancy was due to Indego being "the new cool thing" or it was due to something operational that could be duplicated, it's certainly worth further investigation by the company's decision makers.
-        
+
+    <p>
+        Now we come to rides by month of the year, and even before taking 
+        weather data into account a clear seasonal correlation can be seen. 
+        This pattern alone could help predict daily rentals within a reasonable 
+        margin. Adjusting the number of bikes in circulation or the number of 
+        operational stations could be a good way to cut costs and take advantage
+        of the lower volume in down seasons.
+
     </p>
 
     <img src="images/Screen Shot 2020-12-01 at 10.09.01 AM.png" alt="Seasonal Patterns">
      
-    <p>
-        For the remainder of the analysis and the later regression models I will be omitting 2015 and 2016 in order to accurately portray recent trends and exclude clear outliers. This could be handled in other ways such as weighted regression with a heavier emphasis on recent years, but due to the sheer size of the difference and for the sake of simplicity, the omission aproach will be taken.
+    
+        <p>
+
+        Next, if you simply look at the total distribution of rides by day you'll see 
+        that there is very little deviation amongst them, but this doesn't 
+        tell the whole story.
+
+        </p>
+
+        <table class="dataframe">  
+            <caption>
+                    <br>
+                    Total Number of Rides by Day for All Pass Types
+                    <br>
+                    <br>
+                    <code>
+                        BikesPickle.groupby('Day')[['passholder_type']].count()
+                    </code>
+                    <br>
+            </caption>
+            <tr>      
+                <th>Day of Week</th>      
+                <th>Number of Rides</th>    
+            </tr> 
+            <tr>            
+                <td>Monday</td>      
+                <td>502827</td>    
+            </tr>    
+            <tr>            
+                <td>Tuesday</td>      
+                <td>538356</td>    
+            </tr>    
+            <tr>            
+                <td>Wednesday</td>      
+                <td>550707</td>    
+            </tr>    
+            <tr>            
+                <td>Thursday</td>      
+                <td>530674</td>    
+            </tr>    
+            <tr>            
+                <td>Friday</td>      
+                <td>531637</td>    
+            </tr>   
+            <tr>            
+                <td>Saturday</td>      
+                <td>445003</td>    
+            </tr> 
+            <tr>            
+                <td>Sunday</td>      
+                <td>404415</td>    
+            </tr>  
+            
+            </table>
         
-        Even before taking weather data into account a clear seasonal correlation can be seen. This pattern alone could help predict daily rentals within a regional margin. Adjusting the number of bikes in circulation or the number of operational stations could be a good way to cut costs and take advantage of the lower volume in down seasons.
+        <p>
+
+        Breaking down the daily ride distribution by pass type reveals a more 
+        interesting relationship. Daily passes have a much higher rental volume 
+        on weekends while subscription passes have a much greater amount of 
+        rides on weekdays.
+
+        Below we have the total daily ride counts by day of the week for daily
+        passes.
+
+        </p>
+
+        <table class="dataframe">  
+            <caption>
+                    <br>
+                    Total Number of Rides by Day for Daily Passes
+                    <br>
+                    <br>
+                    <code>
+                        BikesPickle[BikesPickle['passholder_type'] == 
+                        'Day Pass'].groupby('Day')[['passholder_type']].count()
+                    </code>
+                    <br>
+            </caption>
+            <tr>      
+                <th>Day of Week</th>      
+                <th>Number of Rides</th>    
+            </tr> 
+            <tr>            
+                <td>Monday</td>      
+                <td>18086</td>    
+            </tr>    
+            <tr>            
+                <td>Tuesday</td>      
+                <td>14983</td>    
+            </tr>    
+            <tr>            
+                <td>Wednesday</td>      
+                <td>15737</td>    
+            </tr>    
+            <tr>            
+                <td>Thursday</td>      
+                <td>16162</td>    
+            </tr>    
+            <tr>            
+                <td>Friday</td>      
+                <td>21530</td>    
+            </tr>   
+            <tr>            
+                <td>Saturday</td>      
+                <td>46543</td>    
+            </tr> 
+            <tr>            
+                <td>Sunday</td>      
+                <td>35663</td>    
+            </tr>  
+            
+            </table>
+
+
+        <p>And now we have the number of rides by day for subscription holders
+        </p>
+
+        <table class="dataframe">  
+            <caption>
+                    <br>
+                    Total Number of Rides by Day for Subscription Pass Holders
+                    <br>
+                    <br>
+                    <code>
+                        BikesPickle[BikesPickle['passholder_type'] == 
+                        'Day Pass'].groupby('Day')[['passholder_type']].count()
+                    </code>
+                    <br>
+            </caption>
+            <tr>      
+                <th>Day of Week</th>      
+                <th>Number of Rides</th>    
+            </tr> 
+            <tr>            
+                <td>Monday</td>      
+                <td>442132</td>    
+            </tr>    
+            <tr>            
+                <td>Tuesday</td>      
+                <td>484133</td>    
+            </tr>    
+            <tr>            
+                <td>Wednesday</td>      
+                <td>494060</td>    
+            </tr>    
+            <tr>            
+                <td>Thursday</td>      
+                <td>472532</td>    
+            </tr>    
+            <tr>            
+                <td>Friday</td>      
+                <td>455663</td>    
+            </tr>   
+            <tr>            
+                <td>Saturday</td>      
+                <td>306462</td>    
+            </tr> 
+            <tr>            
+                <td>Sunday</td>      
+                <td>282349</td>    
+            </tr>  
+            
+            </table>
         
-    <img src="images/Screen Shot 2020-12-03 at 2.00.37 PM.png" alt="Holidays">
+        <p>    
+
+        This makes logical sense considering people may use 
+        subscription services as their main form of transportation while daily 
+        passes may be used more for leisure on days off. This could potentially 
+        be capitalized on with promotions for daily passes on week days to 
+        hopefully draw in more customers on slower days or by utilizing other 
+        discount offers. 
+
+        </p>
+
+        <p>
+            Initial weather EDA shows the only two weather conditions with an
+            apparent correlation are temperature and chance of precipitation.
+            For example, all days exceeding a total ride count of 5000 were 
+            when the temperature was warmer than 60 degrees. And the trend for 
+            precipitation chance is that the data is very variable when there is 
+            a 0% chance of rain since it is then not a factor, but then generally
+            begins to decrease as the chances rise. These two graphics can be 
+            seen below.
+        </p>
+
+        <img src="images/temp.png" alt="Temperature Graph">
+
+        <img src="images/precip.png" alt="Precipitation Graph">
+
+
+        <div class = "Content-Heading">
+            Regression Analysis
+        </div>
+
+        <p>
+
+        For the remainder of the analysis and the later regression models I will 
+        be omitting 2015 and 2016 in order to accurately portray recent trends 
+        and exclude clear outliers. This could be handled in other ways such as 
+        weighted regression with a heavier emphasis on recent years, but due to 
+        the sheer size of the difference and for the sake of simplicity, the 
+        omission approach will be taken.
         
-        If you simply look at the total distribution of rides by day you'll see that there is very little deviation amongst them and slightly more rides on saturdays, but this doesn't tell the whole story.
+        After experimenting with different available data it turned out that 
+        the most accurate regression model was a simple one containing only 
+        mean temperature, precipitation chance, and a binary variable for 
+        holiday or not. Using this equation an r^2 value of roughly 0.7 was 
+        achieved with a root mean square error of only 569 for the years 
+        between 2017 and early 2020. While a lot of this is seasonally 
+        driven and could be seen from the earlier EDA, being able to predict 
+        daily ride counts within a reasonable margin like this can be highly 
+        useful for forecasting and resource allocation. 
+
+        Below the first scatter plot is the actual ride data between 2017-2019, 
+        and the second scatter plot is the predicted ride counts for these days.
+
+    </p>
+
+        <img src="images/actual.png" alt="Actual Ride Data">
+
+        <img src="images/predict.png" alt="Predicted Ride Data">
+
+        <div class = "Content-Heading">
+            Code and Notebook Sources
+        </div>
+
+        <p>
+            The notebook with all data loading and cleaning can be found here: 
+            https://github.com/Keough-Dev/IndegoBikesDataAnalysis/blob/master/IndegoDataLoading.ipynb
+
+            The notebook with all EDA and modeling can be found here: 
+            https://github.com/Keough-Dev/IndegoBikesDataAnalysis/blob/master/IndegoEDAAndModeling.ipynb
+        </p>
+    
         
-        Breaking down the daily ride distribution by pass type reveals a more interesting relationship. Daily passes have a much higher rental volume on weekends while subscription passes have a much greater amount of rides on weekdays. This makes logical sense considering people may use subscription services as their main form of transportation while daily passes may be used more for leisure on days off. This could potentially be capitalized on with promotions for daily passes on week days to hopefully draw in more customers on slower days or by utilizing other discount offers. 
-        
-        There is also a much larger rate of rentals on holidays. Less than 1/7th of the days of the year are recognized holidays, while roughly 40% of bike rentals occur on holidays. Using a similar strategy as previously mentioned, discounts could be offered on non holidays to boost rental rates, and prices could be kept constant on holidays when rental rates are already high.
-        
-        *4 quadrant graph of different weather metrics*
-        
-        After finishing up some initial EDA, we'll factor in weather and finish up some more initial analyses before moving to regression.
-        
-        The one factor that appears to have a positive correlation with rentals is daily mean temperature. Chance of precipitation, when not zero, appears to have a downward correlation. Neither of these are extremely compact trends, but they do exhibit a connection in either direction. All other weather phenomena checked showed virtually zero correlation with rental numbers. 
-        
-        After experimenting with different available data it turned out that the most accurate regression model was a simple one containing only mean temperature, precipitation chance, and a binary variable for holiday or not. Using this equation an r^2 value of roughly 0.7 was achieved with a root mean square error of only 569 for the years between 2017 and early 2020. While a lot of this is seasonally driven and could be seen from the earlier EDA, being able to predict daily ride counts within a reasonable margin like this can be highly useful for forecasting and resource allocation. </p>
 </div>
