@@ -185,6 +185,7 @@ p{
 
 .dataframe caption{
     caption-side: bottom;
+    padding-top: 2vh;
 }
 
 .dataframe th{
