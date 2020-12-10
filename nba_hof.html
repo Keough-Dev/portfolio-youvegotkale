@@ -245,4 +245,85 @@ https://github.com/Keough-Dev/NBA_HOF_Classifier/blob/master/HOFClassifierModelT
 
 </table>
 
+<table class="dataframe">  
+    <caption>
+            <br>
+            5 highest hall of fame probabilities for players not in hall of 
+            fame (either never inducted or not yet eligible)
+            <br>
+            <br>
+            <code>
+                stats_complete_hof[stats_complete_hof['HOF'] == 0][['Player', 'keras_hof_prob']]
+                .sort_values('keras_hof_prob', ascending = False).head().to_html()
+            </code>
+    </caption>
+    <tr>      
+        <th>Player Name</th>      
+        <th>Hall of Fame Probability</th>    
+    </tr> 
+    <tr>            
+        <td>Tony Parker</td>      
+        <td>0.8585</td>    
+    </tr>    
+    <tr>            
+        <td>Tim Duncan</td>      
+        <td>0.8421</td>    
+    </tr>    
+    <tr>            
+        <td>Chris Bosh</td>      
+        <td>0.8378</td>    
+    </tr>    
+    <tr>            
+        <td>Pau Gasol</td>      
+        <td>0.8117</td>    
+    </tr>    
+    <tr>            
+        <td>Larry Foust</td>      
+        <td>0.8054</td>    
+    </tr>    
+    
+    </table>
+
+    <table class="dataframe">  
+        <caption>
+                <br>
+                5 lowest hall of fame probabilities for players in hall of fame
+                <br>
+                <br>
+                <code>
+                    stats_complete_hof[stats_complete_hof['HOF'] == 1][['Player', 'keras_hof_prob']]
+                    .sort_values('keras_hof_prob', ascending = True).head().to_html()
+                </code>
+        </caption>
+        <tr>      
+            <th>Player Name</th>      
+            <th>Hall of Fame Probability</th>    
+        </tr> 
+        <tr>            
+            <td>Roger Brown</td>      
+            <td>0.0029</td>    
+        </tr>    
+        <tr>            
+            <td>Louie Dampier</td>      
+            <td>0.0052</td>    
+        </tr>    
+        <tr>            
+            <td>Tracy McGrady</td>      
+            <td>0.0121</td>    
+        </tr>    
+        <tr>            
+            <td>Arvydas Sabonis</td>      
+            <td>0.0130</td>    
+        </tr>    
+        <tr>            
+            <td>John Thompson</td>      
+            <td>0.0156</td>    
+        </tr>    
+        
+        </table>
+
+<h3>Progression of Model Accuracy through Epochs</h3>
+
+<img src="images/Screen Shot 2020-12-10 at 3.09.59 PM" alt="Model Accuracy">
+
 </div>
