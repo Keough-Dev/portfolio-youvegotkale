@@ -14,20 +14,102 @@ custom_css: template
 
 Background
 
-I’ve found myself in many debates over the years about whether or not an NBA player deserves an induction to the hall of fame. These debates usually go back and forth with very little progress, both sides fairly cemented in their initial stance. So in light of this, I figured the only way to solve this series of subjective questions was to turn to some objective data. The general overview of how I was going to approach this project would be to scrape any needed player and team data from basketball reference, format and clean the data, and run scikit learn and keras logistic regression models for comparisons sake. On that note, I’ll get into the details of the process and the end results.   
+I’ve found myself in many debates over the years about whether or not an NBA 
+player deserves an induction to the hall of fame. These debates usually go back 
+and forth with very little progress, both sides fairly cemented in their initial
+stance. So in light of this, I figured the only way to solve this series of 
+subjective questions was to turn to some objective data. The general overview 
+of how I was going to approach this project would be to scrape any needed player 
+and team data from basketball reference, format and clean the data, and run 
+scikit learn and keras logistic regression models for comparisons sake. On that 
+note, I’ll get into the details of the process and the end results.   
 
 Data Loading and Cleaning
-The general plan was to load and clean all data in one notebook (could have also been handled in a script) where the necessary dataframes would then be stored in pickle files. This would allow for another notebook to handle visualization and modeling without having to repeatedly run the initial scraping and cleaning steps. The data would be collected from a combination of one Kaggle dataset containing individual player statistics,  scraped data from basketball-reference.com for team statistics and season awards, as well as a list of hall of fame players from the ever reliable Wikipedia. I would use BeautifulSoup in order to parse all of the data located on the web, and seeing as the structure was unique for most basketball reference pages with occasional blank/erroneous rows and columns different syntax was needed to read in different frames. After some EDA and testing with models the team statistics did not end up being used in final models, but could be useful for future analyses. Sparing the details of going through every aspect of the data preparation, column datatypes were adjusted to prepare for calculations later, dataframes were merged to create one inclusive data source, apply was used to calculate advanced metrics as new columns and ultimately data was saved as pickle files.  These statistics would then be normalized in the next notebook to account for the discrepancy between certain values (i.e. championships being 3 and field goal percentage being 0.5).
+The general plan was to load and clean all data in one notebook (could have also 
+been handled in a script) where the necessary dataframes would then be stored 
+in pickle files. This would allow for another notebook to handle visualization 
+and modeling without having to repeatedly run the initial scraping and cleaning 
+steps. The data would be collected from a combination of one Kaggle dataset 
+containing individual player statistics,  scraped data from 
+basketball-reference.com for team statistics and season awards, as well as a 
+list of hall of fame players from the ever reliable Wikipedia. I would use 
+BeautifulSoup in order to parse all of the data located on the web, and seeing 
+as the structure was unique for most basketball reference pages with occasional 
+blank/erroneous rows and columns different syntax was needed to read in 
+different frames. After some EDA and testing with models the team statistics 
+did not end up being used in final models, but could be useful for future 
+analyses. Sparing the details of going through every aspect of the data 
+preparation, column datatypes were adjusted to prepare for calculations 
+later, dataframes were merged to create one inclusive data source, apply was 
+used to calculate advanced metrics as new columns and ultimately data was 
+saved as pickle files.  These statistics would then be normalized in the next 
+notebook to account for the discrepancy between certain values 
+(i.e. championships being 3 and field goal percentage being 0.5).
 
 Data Preprocessing and Modeling
 
-One thing to consider when attempting to compare NBA players of different eras is that certain statistics and awards have not been present throughout all eras, one of the most notable ones being the 3 point shot. There was also a separation of players between the ABA and NBA which causes some issues with the model, this will be addressed further later on. Before accounting for these various factors, the first model created was a simple logistic regression with a large number of features that did not account for era discrepancies; this model would essentially serve as a baseline. As stated before, all features were scaled to account for large variability in the range of different values, and the target would be set as the binary yes or no (0 or 1) for hall of fame induction status. After splitting data into train and test sets using scikitlearn, training the model and testing against the actual dataset, this simple model performed well based solely on the final accuracy score with ~97.9%. This needs to come with a large grain of salt, however, due to how overwhelmingly sparse the number of hall of fame players actually is. With such a large majority of players being very clearly outside of the hall of fame, by just getting the “gimme” predictions correct and performing poorly on hall of fame inductees and fringe players, a model can still produce a high accuracy score. Regardless of this we still have a good starting point to build off of here.
-After looking at how coefficients impacted the initial results, considering possibly correlated features (such as combinations of field goals made, free throws made, and total points), and considering era agnostic features, a new set was created. This new set of features was centered mainly around career averages, season awards, and championships won. Again I would start with a more basic scikit learn logistic regression model, this time running GridSearchCV to find the best parameters for our model (in this case only needing to check C). This time around there was a slight uptick of 0.3% accuracy, which is actually quite significant with how few hall of famers are present. 
-Now using these features to train our final model, Keras would be used as a deep learning solution to iterate over many epochs and hopefully produce our most accurate results. The Keras model was created as a sequential model (each hidden layer connects to the next in a linear sequence) with a dropout of 0.3 to account for overfitting and 2 hidden layers with relu (was more accurate than sigmoid in this case) activation functions. The target layer would use binary cross-entropy as its loss function (works very well with binary classification) and an adam optimizer for a good general solution. After landing on a 0.333 validation split and running our model for 250 epochs, the final model could be analyzed.
-Once again there was an increase in accuracy of 0.2%, but this time digging a little deeper with scikit learns confusion matrix function gives a more in depth idea of the results. The sensitivity of the results, or the percentage of players in the hall of fame that the model guessed correctly, is roughly 76%. While this isn’t great off the bat, we once again have to dig a little bit deeper. For starters, 17 of the incorrectly guessed hall of famers are players who were ineligible when this model was made, but are very likely hall of famers. This brings our sensitivity to over 90%. Our initial specificity, or the percentage of non hall of famers that our model correctly guessed, is roughly 99%. Again this is in large part due to the fact that there are so many negatives in this model, but on top of this 11 players were found to be outside the scope of the model due to their successes coming largely in the ABA or internationally, improving the specificity even more. All things considered, the actual yes or no of the model performed very well, but the actually probabilities assigned to each player is where I thought all the fun of this project came from, so some selections of those will be listed below.
-The full data loading notebook can be found at: https://github.com/Keough-Dev/NBA_HOF_Classifier/blob/master/HOFClassifierDataLoading.ipynb
+One thing to consider when attempting to compare NBA players of different eras 
+is that certain statistics and awards have not been present throughout all 
+eras, one of the most notable ones being the 3 point shot. There was also a 
+separation of players between the ABA and NBA which causes some issues with the 
+model, this will be addressed further later on. Before accounting for these 
+various factors, the first model created was a simple logistic regression with 
+a large number of features that did not account for era discrepancies; this 
+model would essentially serve as a baseline. As stated before, all features 
+were scaled to account for large variability in the range of different values, 
+and the target would be set as the binary yes or no (0 or 1) for hall of fame 
+induction status. After splitting data into train and test sets using 
+scikitlearn, training the model and testing against the actual dataset, this 
+simple model performed well based solely on the final accuracy score with 
+~97.9%. This needs to come with a large grain of salt, however, due to how 
+overwhelmingly sparse the number of hall of fame players actually is. With such 
+a large majority of players being very clearly outside of the hall of fame, by 
+just getting the “gimme” predictions correct and performing poorly on hall of 
+fame inductees and fringe players, a model can still produce a high accuracy 
+score. Regardless of this we still have a good starting point to build off of here.
+After looking at how coefficients impacted the initial results, considering 
+possibly correlated features (such as combinations of field goals made, free 
+throws made, and total points), and considering era agnostic features, a new 
+set was created. This new set of features was centered mainly around career 
+averages, season awards, and championships won. Again I would start with a more 
+basic scikit learn logistic regression model, this time running GridSearchCV to 
+find the best parameters for our model (in this case only needing to check C). 
+This time around there was a slight uptick of 0.3% accuracy, which is actually 
+quite significant with how few hall of famers are present. 
+Now using these features to train our final model, Keras would be used as a 
+deep learning solution to iterate over many epochs and hopefully produce our 
+most accurate results. The Keras model was created as a sequential model 
+(each hidden layer connects to the next in a linear sequence) with a dropout of 
+0.3 to account for overfitting and 2 hidden layers with relu (was more accurate 
+than sigmoid in this case) activation functions. The target layer would use 
+binary cross-entropy as its loss function (works very well with binary 
+classification) and an adam optimizer for a good general solution. After 
+landing on a 0.333 validation split and running our model for 250 epochs, 
+the final model could be analyzed.
+Once again there was an increase in accuracy of 0.2%, but this time digging a 
+little deeper with scikit learns confusion matrix function gives a more in 
+depth idea of the results. The sensitivity of the results, or the percentage 
+of players in the hall of fame that the model guessed correctly, is roughly 
+76%. While this isn’t great off the bat, we once again have to dig a little bit 
+deeper. For starters, 17 of the incorrectly guessed hall of famers are players 
+who were ineligible when this model was made, but are very likely hall of 
+famers. This brings our sensitivity to over 90%. Our initial specificity, or 
+the percentage of non hall of famers that our model correctly guessed, is 
+roughly 99%. Again this is in large part due to the fact that there are so 
+many negatives in this model, but on top of this 11 players were found to be 
+outside the scope of the model due to their successes coming largely in the 
+ABA or internationally, improving the specificity even more. All things 
+considered, the actual yes or no of the model performed very well, but the 
+actually probabilities assigned to each player is where I thought all the fun 
+of this project came from, so some selections of those will be listed below.
+The full data loading notebook can be found at: 
+https://github.com/Keough-Dev/NBA_HOF_Classifier/blob/master/HOFClassifierDataLoading.ipynb
 
-The full modeling notebook can be found at: https://github.com/Keough-Dev/NBA_HOF_Classifier/blob/master/HOFClassifierModelTraining.ipynb
+The full modeling notebook can be found at: 
+https://github.com/Keough-Dev/NBA_HOF_Classifier/blob/master/HOFClassifierModelTraining.ipynb
 
     </p>
+
+<table class="dataframe">\n  <thead>\n    <tr style="text-align: right;">\n      <th></th>\n      <th>Player</th>\n      <th>keras_hof_prob</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>2082</th>\n      <td>Julius Erving</td>\n      <td>0.995336</td>\n    </tr>\n    <tr>\n      <th>2081</th>\n      <td>Julius Erving</td>\n      <td>0.994498</td>\n    </tr>\n    <tr>\n      <th>294</th>\n      <td>Bill Russell</td>\n      <td>0.976928</td>\n    </tr>\n    <tr>\n      <th>1963</th>\n      <td>John Havlicek</td>\n      <td>0.973993</td>\n    </tr>\n    <tr>\n      <th>2107</th>\n      <td>Kareem Abdul-Jabbar</td>\n      <td>0.970475</td>\n    </tr>\n    <tr>\n      <th>3769</th>\n      <td>Wilt Chamberlain</td>\n      <td>0.964584</td>\n    </tr>\n    <tr>\n      <th>1391</th>\n      <td>George McGinnis</td>\n      <td>0.956222</td>\n    </tr>\n    <tr>\n      <th>1816</th>\n      <td>Jerry West</td>\n      <td>0.953376</td>\n    </tr>\n    <tr>\n      <th>1202</th>\n      <td>Elgin Baylor</td>\n      <td>0.951933</td>\n    </tr>\n    <tr>\n      <th>715</th>\n      <td>Connie Hawkins</td>\n      <td>0.949800</td>\n    </tr>\n    <tr>\n      <th>3802</th>\n      <td>Zelmo Beaty</td>\n      <td>0.944579</td>\n    </tr>\n    <tr>\n      <th>1213</th>\n      <td>Elvin Hayes</td>\n      <td>0.942362</td>\n    </tr>\n    <tr>\n      <th>3523</th>\n      <td>Tom Heinsohn</td>\n      <td>0.937076</td>\n    </tr>\n    <tr>\n      <th>3212</th>\n      <td>Sam Jones</td>\n      <td>0.932190</td>\n    </tr>\n    <tr>\n      <th>209</th>\n      <td>Artis Gilmore</td>\n      <td>0.928547</td>\n    </tr>\n    <tr>\n      <th>1038</th>\n      <td>Dolph Schayes</td>\n      <td>0.924604</td>\n    </tr>\n    <tr>\n      <th>2421</th>\n      <td>Magic Johnson</td>\n      <td>0.918571</td>\n    </tr>\n    <tr>\n      <th>374</th>\n      <td>Bob Pettit</td>\n      <td>0.915801</td>\n    </tr>\n    <tr>\n      <th>2324</th>\n      <td>LeBron James</td>\n      <td>0.910602</td>\n    </tr>\n    <tr>\n      <th>2802</th>\n      <td>Oscar Robertson</td>\n      <td>0.910597</td>\n    </tr>\n    <tr>\n      <th>343</th>\n      <td>Bob Cousy</td>\n      <td>0.906158</td>\n    </tr>\n    <tr>\n      <th>862</th>\n      <td>Dave DeBusschere</td>\n      <td>0.903829</td>\n    </tr>\n    <tr>\n      <th>2284</th>\n      <td>Larry Bird</td>\n      <td>0.893746</td>\n    </tr>\n    <tr>\n      <th>3726</th>\n      <td>Wes Unseld</td>\n      <td>0.890379</td>\n    </tr>\n    <tr>\n      <th>2836</th>\n      <td>Patrick Ewing</td>\n      <td>0.886901</td>\n    </tr>\n  </tbody>\n</table>
+
 </div>
