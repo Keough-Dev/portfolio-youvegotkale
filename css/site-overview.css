@@ -39,3 +39,44 @@ body{
     text-decoration: underline;
 }
 
+.Footer{
+    background-color: lightgrey;
+    height: 35vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.Footer img{
+    height: 18vh;
+    width: 15vw;
+    padding-top: 2.5vh;
+    position: relative;
+}
+
+.social-links{
+    
+    padding-top: 4vh;
+    position: relative;
+    bottom: 0;
+    z-index: 0;
+    text-align: center;
+}
+
+.social-links a{
+    display: inline-block;
+    box-sizing: border-box;
+    padding-top: 1.3vmin;
+    margin: 0 25px;
+    background-color: white;
+    color: #0073bc;
+    font-size: 3.3vmin;
+    height: 6.2vmin;
+    width: 6.2vmin;
+    border-radius: 99px;
+}
+
+.social-links a:hover{
+    color: white;
+    background-color: #0073bc;
+}
+

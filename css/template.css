@@ -78,10 +78,6 @@ body {
     float: left;
 }
 
-.Wrapper{
-
-}
-    
 .Row{
     display: flex;
     flex-direction: row;
