@@ -7,24 +7,24 @@ custom_css: template
 
 <div class = "Content">
     <div class = "Content-Heading">
-        Background
+        Overview
     </div>
     <p>
-        NBA HOF:
 
-Background
-
-I’ve found myself in many debates over the years about whether or not an NBA 
-player deserves an induction to the hall of fame. These debates usually go back 
-and forth with very little progress, both sides fairly cemented in their initial
-stance. So in light of this, I figured the only way to solve this series of 
-subjective questions was to turn to some objective data. The general overview 
-of how I was going to approach this project would be to scrape any needed player 
+The general overview for the approach to this project was to create a logistic 
+regression that both predicted which NBA players were either in the hall of 
+fame or would be inducted into the hall of fame, as well as the probability of 
+them being there (in other words on a scale from 0 to 1 how much do the 
+"look like" a hall of famer). The main steps would be to scrape any needed player 
 and team data from basketball reference, format and clean the data, and run 
 scikit learn and keras logistic regression models for comparisons sake. On that 
 note, I’ll get into the details of the process and the end results.   
 
-Data Loading and Cleaning
+    <div class = "Content-Heading">
+        Data Loading and Cleaning
+    </div>
+
+<p>
 The general plan was to load and clean all data in one notebook (could have also 
 been handled in a script) where the necessary dataframes would then be stored 
 in pickle files. This would allow for another notebook to handle visualization 
@@ -45,9 +45,13 @@ used to calculate advanced metrics as new columns and ultimately data was
 saved as pickle files.  These statistics would then be normalized in the next 
 notebook to account for the discrepancy between certain values 
 (i.e. championships being 3 and field goal percentage being 0.5).
+</p>
 
-Data Preprocessing and Modeling
+<div class = "Content-Heading">
+    Data Preprocessing and Modeling
+</div>
 
+<p>
 One thing to consider when attempting to compare NBA players of different eras 
 is that certain statistics and awards have not been present throughout all 
 eras, one of the most notable ones being the 3 point shot. There was also a 
@@ -102,13 +106,25 @@ ABA or internationally, improving the specificity even more. All things
 considered, the actual yes or no of the model performed very well, but the 
 actually probabilities assigned to each player is where I thought all the fun 
 of this project came from, so some selections of those will be listed below.
+</p>
+
+<div class = "Content-Heading">
+    Full Notebook Sources
+</div>
+
+<p>
+
 The full data loading notebook can be found at: 
 https://github.com/Keough-Dev/NBA_HOF_Classifier/blob/master/HOFClassifierDataLoading.ipynb
 
 The full modeling notebook can be found at: 
 https://github.com/Keough-Dev/NBA_HOF_Classifier/blob/master/HOFClassifierModelTraining.ipynb
 
-    </p>
+</p>
+
+<div class = "Content-Heading">
+    Results and Graphics
+</div>
 
 <table class="dataframe">  
 <caption>
