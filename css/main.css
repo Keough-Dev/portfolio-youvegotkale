@@ -111,6 +111,10 @@ body {
     top: -4vh;
 }
 
+.Break i{
+    display: none;
+}
+
 .Background{
     z-index: 1;
     position: block;
@@ -312,14 +316,19 @@ body {
     .Hero li{
         font-size: 3.5vmin;
     }
+
+    .Break i{
+        display: block;
+    }
+
     #Arrow-id{
-        bottom: 10vh;
+        display: none;
     }
 
     .social-links a{
         height: 9vmin;
         width: 9vmin;
-        font-size: 5.8vmin;
+        font-size: 4.6vmin;
     }
 
   }
