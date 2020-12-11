@@ -211,7 +211,7 @@ p{
     padding: 2vh 0;
 }
 
-.Compressor-img:nth-child(1) img{
+.Compressor-img:nth-child(1){
     padding-bottom: 0;
 }
 
