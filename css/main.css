@@ -271,18 +271,17 @@ body {
     }
     .Content .Text{
         display: none;
-
     }
 
     .Content{
         display: block;
-        height: 40vh;
-        width: 50vw;
+        height: 35vh;
+        width: 60vw;
     }
     .Content img{
         display: block;
-        height: 40vh;
-        width: 50vw;
+        height: 35vh;
+        width: 60vw;
     }
     .Hero img{
         height: 65vh;
@@ -290,6 +289,14 @@ body {
     }
     .Hero h1{
         font-size: 6vh;
+    }
+
+    .Hero ul{
+        top: 18.5vh;
+    }
+
+    .Hero li{
+        font-size: 4vh;
     }
 
   }
