@@ -297,11 +297,11 @@ p{
     }
 
     .Compressor-img-small img{
-        height: 20vh;
-        width: 70vw;
+        height: 28vh;
+        width: 82vw;
     }
 
-    .Video{
+    .Video video{
         height: 250;
         width: 350;
     }
