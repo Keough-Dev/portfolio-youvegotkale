@@ -297,13 +297,13 @@ p{
     }
 
     .Compressor-img-small img{
-        height: 28vh;
+        height: 14vh;
         width: 82vw;
     }
 
     .Video video{
-        height: 250;
-        width: 350;
+        height: 25vh;
+        width: 55vw;
     }
 
     .social-links a{
