@@ -313,13 +313,13 @@ body {
         font-size: 3.5vmin;
     }
     #Arrow-id{
-        bottom: 17.5vmin;
+        bottom: 10vh;
     }
 
     .social-links a{
-        height: 10vmin;
-        width: 10vmin;
-        font-size: 7.5vmin;
+        height: 9vmin;
+        width: 9vmin;
+        font-size: 5.8vmin;
     }
 
   }
