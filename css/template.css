@@ -211,10 +211,14 @@ p{
     padding: 2vh 0;
 }
 
+.Compressor-img:nth-child(1) img{
+    padding-bottom: 0;
+}
+
 .Compressor-img-small img{
     display: block;
-    height: 24vh;
-    width: 48vw;
+    height: 20vh;
+    width: 40vw;
     padding: 2vh 0;
 }
 
