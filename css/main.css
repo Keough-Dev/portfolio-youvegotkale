@@ -269,7 +269,8 @@ body {
 
     .Navbar .nav-links a {
     margin: 1vmin;
-    font-size: x-small;
+    right: 2vh;
+    font-size: small;
     }
 
     .Logo-Wrapper{
