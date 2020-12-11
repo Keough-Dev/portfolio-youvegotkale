@@ -112,7 +112,7 @@ body {
 }
 
 .Break i{
-    position: relative;
+    position: absolute;
     font-size: 3vh;
     top: -12.5vh;
 }
