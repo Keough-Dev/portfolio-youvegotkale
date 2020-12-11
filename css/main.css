@@ -111,12 +111,6 @@ body {
     top: -4vh;
 }
 
-.Break i{
-    position: absolute;
-    font-size: 3vh;
-    top: -25vh;
-}
-
 .Background{
     z-index: 1;
     position: block;
