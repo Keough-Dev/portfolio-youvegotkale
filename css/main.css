@@ -271,4 +271,12 @@ body {
         height: 50%;
         width: 75%;
     }
+    .Hero img{
+        height: 250px;
+        width: 100%;
+    }
+    .Hero h1{
+        font-size: medium;
+    }
+
   }
