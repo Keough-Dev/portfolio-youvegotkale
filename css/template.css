@@ -277,6 +277,11 @@ p{
         margin-top: 1.5vh;
     }
 
+    .Header img{
+        height: 7vh;
+        width: 14vw;
+    }
+
     .Jump-To{
         display: none;
     }
