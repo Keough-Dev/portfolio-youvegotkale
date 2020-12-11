@@ -292,11 +292,14 @@ body {
     }
 
     .Hero ul{
-        top: 18.5vh;
+        top: 15vh;
     }
 
     .Hero li{
-        font-size: 4vh;
+        font-size: 3.5vmin;
+    }
+    #Arrow-id{
+        bottom: 12.5vmin;
     }
 
   }
