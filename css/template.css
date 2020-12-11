@@ -223,6 +223,7 @@ p{
 }
 
 .Video{
+    display: block;
     margin-bottom: 5vh;
 }
 
