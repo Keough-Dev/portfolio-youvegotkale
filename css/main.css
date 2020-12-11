@@ -305,19 +305,20 @@ body {
 
     .Hero ul{
         top: 15vh;
-        left: 3vw;
+        left: -3vw;
     }
 
     .Hero li{
         font-size: 3.5vmin;
     }
     #Arrow-id{
-        bottom: 20vmin;
+        bottom: 17.5vmin;
     }
 
     .social-links a{
         height: 10vmin;
         width: 10vmin;
+        font-size: 7.5vmin;
     }
 
   }
