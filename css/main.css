@@ -267,13 +267,22 @@ body {
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     .Content{
+        background-color: white;
+    }
+    .Content .Text{
+        display: none;
+    }
+    .Content:hover{
+        
+    }
+    .Content img{
         display: block;
-        height: 50%;
-        width: 75%;
+        height: 40%;
+        width: 60%;
     }
     .Hero img{
-        height: 250px;
-        width: 100%;
+        height: 75vh;
+        width: 150vw;
     }
     .Hero h1{
         font-size: medium;
