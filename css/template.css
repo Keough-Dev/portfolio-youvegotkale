@@ -206,15 +206,15 @@ p{
 
 .Compressor-img img{
     display: block;
-    height: 35vh;
-    width: 32vw;
+    height: 48vh;
+    width: 30vw;
     padding: 2vh 0;
 }
 
 .Compressor-img-small img{
     display: block;
-    height: 20vh;
-    width: 45vw;
+    height: 24vh;
+    width: 48vw;
     padding: 2vh 0;
 }
 
