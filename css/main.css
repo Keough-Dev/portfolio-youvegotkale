@@ -269,12 +269,13 @@ body {
 
     .Navbar .nav-links a {
     margin: 1vmin;
-
+    font-size: x-small;
     }
 
     .Logo-Wrapper{
-        height: 6vh;
-        width: 5vw;
+        height: 7vh;
+        width: 5.8vw;
+        margin-top: 1.5vh;
     }
 
     .Content{
@@ -304,13 +305,19 @@ body {
 
     .Hero ul{
         top: 15vh;
+        left: 3vw;
     }
 
     .Hero li{
         font-size: 3.5vmin;
     }
     #Arrow-id{
-        bottom: 16vmin;
+        bottom: 20vmin;
+    }
+
+    .social-links a{
+        height: 10vmin;
+        width: 10vmin;
     }
 
   }
