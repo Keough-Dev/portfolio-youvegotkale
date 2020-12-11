@@ -266,6 +266,17 @@ body {
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
+
+    .Navbar .nav-links a {
+    margin: 1vmin;
+
+    }
+
+    .Logo-Wrapper{
+        height: 6vh;
+        width: 5vw;
+    }
+
     .Content{
         background-color: white;
     }
@@ -299,7 +310,7 @@ body {
         font-size: 3.5vmin;
     }
     #Arrow-id{
-        bottom: 12.5vmin;
+        bottom: 16vmin;
     }
 
   }
