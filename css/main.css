@@ -271,21 +271,25 @@ body {
     }
     .Content .Text{
         display: none;
+
     }
-    .Content:hover{
-        
+
+    .Content{
+        display: block;
+        height: 40vh;
+        width: 50vw;
     }
     .Content img{
         display: block;
-        height: 40%;
-        width: 60%;
+        height: 40vh;
+        width: 50vw;
     }
     .Hero img{
-        height: 75vh;
+        height: 65vh;
         width: 150vw;
     }
     .Hero h1{
-        font-size: medium;
+        font-size: 6vh;
     }
 
   }
