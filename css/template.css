@@ -283,17 +283,22 @@ p{
 
     .Content img{
         height: 30vh;
-        width: 50vw;
+        width: 65vw;
     }
 
     .Compressor-img img{
-        height: 60vh;
-        width: 45vw;
+        height: 50vh;
+        width: 65vw;
     }
 
     .Compressor-img-small img{
-        height: 30vh;
-        width: 60vw;
+        height: 20vh;
+        width: 70vw;
+    }
+
+    .Video{
+        height: 250;
+        width: 350;
     }
 
     .social-links a{
