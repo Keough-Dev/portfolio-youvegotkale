@@ -318,7 +318,8 @@ body {
     }
 
     .Break i{
-        display: block;
+        display: contents;
+        font-size: medium;
     }
 
     #Arrow-id{
