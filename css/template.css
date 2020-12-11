@@ -263,3 +263,42 @@ p{
     color: white;
     background-color: #0073bc;
 }
+
+@media only screen and (max-width: 768px) {
+    .Navbar .nav-links a {
+    margin: 1vmin;
+    right: 2vh;
+    font-size: small;
+    }
+
+    .Logo-Wrapper{
+        height: 7vh;
+        width: 5.8vw;
+        margin-top: 1.5vh;
+    }
+
+    .Jump-To{
+        display: none;
+    }
+
+    .Content img{
+        height: 30vh;
+        width: 50vw;
+    }
+
+    .Compressor-img img{
+        height: 60vh;
+        width: 45vw;
+    }
+
+    .Compressor-img-small img{
+        height: 30vh;
+        width: 60vw;
+    }
+
+    .social-links a{
+        height: 9vmin;
+        width: 9vmin;
+        font-size: 4.6vmin;
+    }
+}
